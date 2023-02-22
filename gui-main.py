@@ -22,7 +22,7 @@ def realisticTyping(word: str, maxDelay: int):
     inputElement = driver.find_element(By.XPATH, '// input[@autocorrect="off"]')
 
     for a in range(len(word)):
-        delay = random.randint(0, maxDelay)/1000
+        delay = random.randint(50, maxDelay)/1000
 
         time.sleep(delay)
         inputElement.send_keys(word[a])
@@ -49,8 +49,10 @@ def bot():
             
             word = random.choice(potential_words)
 
+            time.sleep(random.randint(200, 1000)/1000)
+
             try:
-                realisticTyping(word, 221)
+                realisticTyping(word, 321)
             except:
                 print('fuck')
         
